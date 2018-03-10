@@ -15,3 +15,15 @@ sudo cp -f ./src/addword /bin/addword
 sudo chmod 775 /bin/addword
 mkdir ~/ydword
 sudo chmod 777 ~/ydword
+
+# Ubuntu系统可以自动添加快捷键
+currentSystem=$(lsb_release -a | grep 'Distributor ID' 2> /dev/null)
+currentSystem=$(echo ${currentSystem#*:})
+
+if [ $currentSystem == "Ubuntu" ]
+then
+	gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/ name "fanyi"
+	gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/ command "fanyi"
+	gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/ binding "<Alt>period"
+fi
+
