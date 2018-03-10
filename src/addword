@@ -1,0 +1,23 @@
+#! /bin/bash
+
+#定义需要添加的单词变量
+word=`xclip -out`
+wordCount=$(echo $word | wc -w)
+if [ $wordCount -ne 1 ]
+then
+	notify-send "Too many words!! You can only add one word."
+	exit 1
+fi
+transword "${word}"
+
+pkill notify-osd
+notify-send "successfully added"
+
+#添加主节点
+sed -i '/<\/wordbook>/d' ~/ydword/mywords.xml 
+sed -i '1c <wordbook><item>' ~/ydword/mywords.xml
+sed -i '$a </wordbook>' ~/ydword/mywords.xml
+
+sleep <3>s
+pkill notify-osd
+

@@ -1,0 +1,10 @@
+#! /bin/bash
+
+#定义变量word为鼠标选中的单词输出
+word=`xclip -out`  
+mean=`translate "${word}"`
+#结束系统通知框
+pkill notify-osd
+notify-send "$mean"
+sleep <3>s
+pkill notify-osd
