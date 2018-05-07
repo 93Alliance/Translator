@@ -8,6 +8,12 @@ then
 	notify-send "Too many words!! You can only add one word."
 	exit 1
 fi
+
+if [ ! -d "~/ydword" ]
+then
+	mkdir ~/ydword
+fi
+
 transword "${word}"
 
 pkill notify-osd
