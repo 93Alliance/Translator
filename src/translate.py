@@ -1,4 +1,4 @@
-#!/usr/bin/python 
+#!/usr/bin/python2.7 
 #-*- encoding: utf-8 -*- 
 """
 # 作者: vincent
@@ -28,7 +28,7 @@ def queryTranslate(queryStr):
                 +urllib.urlencode({'q':queryStr}))
         resultJson =response.read()
 
-    except Exception, e:
+   except Exception, e:
         print "--> Exception catched :"
         print e
 

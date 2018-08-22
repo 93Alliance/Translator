@@ -6,5 +6,5 @@ mean=`translate "${word}"`
 #结束系统通知框
 pkill notify-osd
 notify-send "$mean"
-sleep <3>s
+sleep 3s
 pkill notify-osd

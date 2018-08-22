@@ -24,6 +24,6 @@ sed -i '/<\/wordbook>/d' ~/ydword/mywords.xml
 sed -i '1c <wordbook><item>' ~/ydword/mywords.xml
 sed -i '$a </wordbook>' ~/ydword/mywords.xml
 
-sleep <3>s
+sleep 3s
 pkill notify-osd
 
