@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7 
+#!/usr/bin/python 
 #-*- encoding: utf-8 -*- 
 """
 # 作者: vincent
