@@ -1,4 +1,4 @@
-#!/usr/bin/python 
+#!/usr/bin/python2.7
 #-*- encoding: utf-8 -*- 
 """
 # 作者: vincent
@@ -31,9 +31,9 @@ def queryTranslate(queryStr):
                 +urllib.urlencode({'q':queryStr}))
         resultJson =response.read()
 
-    except Exception, e:
-        print "--> Exception catched :"
-        print e
+    except Exception as e:
+        print("--> Exception catched :")
+        print(e)
 
     return resultJson
     
@@ -73,8 +73,8 @@ def main(words) :
           fp.write(u"""  <item>\n  <word>%s</word>\n  <trans><![CDATA[%s]]></trans>\n  <phonetic><![CDATA[[%s]]]></phonetic>\n  <tags>%s</tags>\n  <progress>1</progress>\n  </item>\n\n""" %(wordsxml,wordexplaining,wordsphonetic,filename))
           fp.close()
     else :
-        print words
-        print u"没有相应的翻译 ..."
+        print(words)
+        print(u"没有相应的翻译 ...")
 
 
 if __name__ == "__main__" :

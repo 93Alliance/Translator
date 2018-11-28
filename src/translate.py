@@ -28,9 +28,9 @@ def queryTranslate(queryStr):
                 +urllib.urlencode({'q':queryStr}))
         resultJson =response.read()
 
-    except Exception, e:
-        print "--> Exception catched :"
-        print e
+    except Exception as e:
+        print("--> Exception catched :")
+        print(e)
 
     return resultJson
     
@@ -50,20 +50,20 @@ def main(words) :
             and jsonObj[KEY_ERRORCODE] ==0 :
         if jsonObj.has_key(KEY_BASIC) :
             if jsonObj[KEY_BASIC].has_key(KEY_PHONETIC) :
-                print u"音标：\n    [" \
-                        +jsonObj[KEY_BASIC][KEY_PHONETIC] +"]"
+                print(u"音标：\n    [" \
+                        +jsonObj[KEY_BASIC][KEY_PHONETIC] +"]")
             if jsonObj[KEY_BASIC].has_key(KEY_EXPLAINS) :
-                print u"词典：" 
+                print(u"词典：")
                 for v in jsonObj[KEY_BASIC][KEY_EXPLAINS] :
-                    print "    " +v
+                    print("    " +v)
         if jsonObj.has_key(KEY_TRANSLATION) :
-            print u"翻译："
+            print(u"翻译：")
             for t in jsonObj[KEY_TRANSLATION] :
-                print "    " +t
+                print("    " +t)
 
     else :
-        print words
-        print u"没有相应的翻译 ..."
+        print(words)
+        print(u"没有相应的翻译 ...")
 
 
 if __name__ == "__main__" :
